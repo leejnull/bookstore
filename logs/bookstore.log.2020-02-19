@@ -1,0 +1,48 @@
+ERROR 2020-02-19 15:10:33,018 log 2949 123145434386432 Internal Server Error: /ping_login/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/cache.py", line 80, in get
+    return self.client.get(key, default=default, version=version,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/client/default.py", line 201, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 57, in wrapper
+    if not user.get_token_account_id(token):
+  File "/Users/lijun/PycharmProjects/bookstore/store/user.py", line 14, in get_token_account_id
+    account_id = s_get(token)
+  File "/Users/lijun/PycharmProjects/bookstore/store/storage.py", line 9, in s_get
+    return cache.get(key)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/client/default.py", line 199, in get
+    value = client.get(key)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/client.py", line 1579, in get
+    return self.execute_command('GET', name)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/client.py", line 875, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/connection.py", line 1185, in get_connection
+    connection.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/connection.py", line 557, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+WARNING 2020-02-19 18:24:25,784 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 18:24:40,583 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 18:24:55,629 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 18:35:10,794 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 18:35:25,788 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 18:35:40,791 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 18:55:55,952 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 18:56:10,942 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 18:56:25,944 log 4522 123145450483712 Not Found: /announce
+WARNING 2020-02-19 23:46:27,031 log 7717 123145391882240 Not Found: /user/get_user_info/

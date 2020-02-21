@@ -1,0 +1,55 @@
+ERROR 2020-02-18 16:00:02,320 log 6417 123145395953664 Internal Server Error: /ping_login/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 56, in wrapper
+    return response_login()
+  File "/Users/lijun/PycharmProjects/bookstore/utils/response.py", line 23, in response_login
+    'status_code': StatusCode.UNAUTHORIZED,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/enum.py", line 341, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: UNAUTHORIZED
+ERROR 2020-02-18 16:01:42,064 log 6446 123145509306368 Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/cache.py", line 96, in delete_pattern
+    return self.client.delete_pattern(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/client/default.py", line 269, in delete_pattern
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/user/views.py", line 46, in logout
+    store_user.delete_token(token)
+  File "/Users/lijun/PycharmProjects/bookstore/store/user.py", line 19, in delete_token
+    s_delete(token)
+  File "/Users/lijun/PycharmProjects/bookstore/store/storage.py", line 13, in s_delete
+    cache.delete_pattern(key)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django_redis/client/default.py", line 264, in delete_pattern
+    for key in client.scan_iter(**kwargs):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/client.py", line 2096, in scan_iter
+    cursor, data = self.scan(cursor=cursor, match=match,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/client.py", line 2077, in scan
+    return self.execute_command('SCAN', *pieces)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/client.py", line 875, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/connection.py", line 1185, in get_connection
+    connection.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/redis/connection.py", line 557, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
