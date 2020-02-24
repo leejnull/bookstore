@@ -20,3 +20,7 @@ class Website(models.Model):
     def search_book(self, book_name):
         if self.is_biquge():
             return crawl.search_book_from_biquge(book_name, self.search_url, self.id, self.title)
+
+    def crawling_book(self, book_id):
+        if self.is_biquge():
+            crawl

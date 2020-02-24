@@ -31,10 +31,14 @@ def search_book_from_biquge(book_name, search_url, website_id, website_title):
                 'img_url': image,
                 'website_id': website_id,
                 'website_title': website_title,
-                'novel_id': novel_id,
+                'book_id': novel_id,
                 'exists': exists
             })
     else:
         logger.error('返回页面为空|%s|%s', search_url, book_name)
 
     return res
+
+
+def crawling_book_from_biquge():
+    pass

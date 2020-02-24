@@ -46,6 +46,27 @@ def search_book(request):
 
 @require_login
 @post
+def crawling_book(request):
+    try:
+        website_id = request.POST.get('website_id')
+        novel_id = request.POST.get('novel_id')
+    except (ValueError, IndexError, TypeError):
+        logger.error('参数不正确|%s', request.POST)
+        return response_failure(message='请求参数错误')
+
+    try:
+        website = Website.objects.get(id=website_id)
+    except Website.DoesNotExist:
+        logger.error('找不到website|%s', website_id)
+        return response_failure(message='找不到指定网站')
+
+    # 异步抓取书籍
+    website.crawling_book(novel_id)
+    return response_success(message='正在爬取书籍中，请去【爬虫管理】查看进度')
+
+
+@require_login
+@post
 def correct_data(request):
     try:
         for website in WEBSITES:
