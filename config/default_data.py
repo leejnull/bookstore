@@ -2,7 +2,8 @@ WEBSITES = [
     {
         'title': '笔趣阁',
         'domain': 'https://www.biquge.com.cn',
-        'search_url': 'https://www.biquge.com.cn/search.php?q='
+        'search_url': 'https://www.biquge.com.cn/search.php?q=',
+        'detail_url': 'https://www.biquge.com.cn/book/',
     }
 ]
 

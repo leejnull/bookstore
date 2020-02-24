@@ -51,10 +51,11 @@ def correct_data(request):
         for website in WEBSITES:
             Website.objects.update_or_create(
                 title=website['title'],
+                domain=website['domain'],
                 defaults={
-                    'domain': website['domain'],
-                    'search_url': website['search_url']
-                }
+                    'detail_url': website['detail_url'],
+                    'search_url': website['search_url'],
+                },
             )
     except Exception as e:
         logger.error('未知错误|%s', e)

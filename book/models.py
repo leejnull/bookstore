@@ -11,6 +11,7 @@ class Novel(models.Model):
     finished = models.BooleanField(default=False)
     image_url = models.CharField(max_length=128)
     website_id = models.IntegerField(null=True)
+    related_id = models.IntegerField(null=True)
 
     class Meta:
         unique_together = (('title', 'author'),)
