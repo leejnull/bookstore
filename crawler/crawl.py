@@ -1,7 +1,7 @@
 from utils import requestor
 from utils.logger import logger
 from bs4 import BeautifulSoup
-from book import models
+from book import models as book_models
 import re
 
 
@@ -21,7 +21,7 @@ def search_book_from_biquge(book_name, search_url, website_id, website_title):
             item_info_list = result.find_all(class_='result-game-item-info-tag')
             author = item_info_list[0].find_all('span')[-1].string
             category = item_info_list[1].find_all('span')[-1].string
-            exists = models.Novel.objects.filter(title=title, author=author).exists()
+            exists = book_models.Book.objects.filter(title=title, author=author).exists()
 
             res.append({
                 'title': title,
@@ -40,5 +40,41 @@ def search_book_from_biquge(book_name, search_url, website_id, website_title):
     return res
 
 
-def crawling_book_from_biquge():
-    pass
+def crawling_book_from_biquge(book_id, book_url, website_id):
+    url = book_url + book_id + '/'
+    html = requestor.get(url)
+    if html:
+        soup = BeautifulSoup(html, 'lxml')
+        title = soup.find('div', id='info').h1.string.strip()
+        img = soup.find('div', id='fmimg').img['src'].strip()
+        author_string = soup.find('div', id='info').p.string
+        state_string = ''.join(soup.find('div', id='info').p.next_sibling.next_sibling.strings)
+        finished = '连载中' not in state_string
+        author = re.match(r'.+：(.+)', author_string).group(1).strip()
+        intro = soup.find('div', id='intro').string.strip()
+        category = soup.find('meta', property='og:novel:category')['content']
+
+        try:
+            category_id = book_models.Category.objects.get(name=category).id
+        except book_models.Category.DoesNotExist:
+            category_id = book_models.Category.objects.create(name=category).id
+
+        try:
+            book = book_models.Book.objects.create(
+                title=title,
+                image_url=img,
+                finished=finished,
+                author=author,
+                intro=intro,
+                category_id=category_id,
+                website_id=website_id,
+                related_id=book_id
+            )
+            logger.info("创建Book成功")
+        except Exception as e:
+            logger.error("创建Book出错|%s", e)
+    else:
+        logger.warning('该书籍ID找不到对应数据|%s', book_id)
+
+def crawling_chapter_from_biquge(book, chapter_id):
+

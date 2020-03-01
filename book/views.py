@@ -17,9 +17,11 @@ def index(request):
 def correct_data(request):
     try:
         for category_title in NOVEL_CATEGORY:
-            Category.objects.update_or_create(
-                name=category_title
-            )
+            obj, created = Category.objects.get_or_create(name=category_title)
+            if created:
+                logger.info('新增Category|%s', category_title)
+            else:
+                logger.info('已存在Category|%s', category_title)
     except Exception as e:
         logger.error('未知错误|%s', e)
         return response_failure()

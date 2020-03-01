@@ -3,7 +3,7 @@ from utils.logger import logger
 from crawler.models import Website
 
 
-class Novel(models.Model):
+class Book(models.Model):
     title = models.CharField(max_length=128)
     intro = models.CharField(max_length=258)
     author = models.CharField(max_length=16)
@@ -50,7 +50,7 @@ class Chapter(models.Model):
     title = models.CharField(max_length=256)
     novel_id = models.IntegerField()
     content_id = models.IntegerField()
-    is_delete = models.BooleanField()
+    is_delete = models.BooleanField(default=False)
     words = models.IntegerField()
     create_time = models.DateTimeField(auto_created=True)
     update_time = models.DateTimeField(null=True)

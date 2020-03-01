@@ -23,4 +23,4 @@ class Website(models.Model):
 
     def crawling_book(self, book_id):
         if self.is_biquge():
-            crawl
+            crawl.crawling_book_from_biquge(book_id, self.detail_url, self.id)
