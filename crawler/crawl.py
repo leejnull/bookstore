@@ -2,6 +2,7 @@ from utils import requestor
 from utils.logger import logger
 from bs4 import BeautifulSoup
 from book import models as book_models
+from store import crawler as crawler_store
 import re
 
 
@@ -40,7 +41,8 @@ def search_book_from_biquge(book_name, search_url, website_id, website_title):
     return res
 
 
-def crawling_book_from_biquge(book_id, book_url, website_id):
+def crawling_book_from_biquge(book_id, book_url, website_id, domain_url):
+    crawler_store.start_crawling_book(book_id, website_id)
     url = book_url + book_id + '/'
     html = requestor.get(url)
     if html:
@@ -71,10 +73,47 @@ def crawling_book_from_biquge(book_id, book_url, website_id):
                 related_id=book_id
             )
             logger.info("创建Book成功")
+            chapters = soup.find_all('dd')
+            for chapter in chapters:
+                chapter_url = domain_url + chapter.a['href']
+                crawling_chapter_from_biquge(chapter_url, book)
         except Exception as e:
+            crawler_store.failure_crawling_book(book_id, website_id)
             logger.error("创建Book出错|%s", e)
     else:
         logger.warning('该书籍ID找不到对应数据|%s', book_id)
+        crawler_store.failure_crawling_book(book_id, website_id)
 
-def crawling_chapter_from_biquge(book, chapter_id):
 
+def crawling_chapter_from_biquge(chapter_url, book):
+    html = requestor.get(chapter_url)
+    if html:
+        soup = BeautifulSoup(html, 'lxml')
+        title = soup.find('h1').string.strip()
+        contents = soup.find('div', id='content').strings
+        text = ''
+        words = 0
+        for content in contents:
+            text += content.strip()
+            words += len(text)
+            text += '\n'
+
+        try:
+            content = book_models.Content.objects.create(content=text)
+        except Exception as e:
+            logger.error('创建Content出错|%s', e)
+            crawler_store.failure_crawling_book(book.id, book.website_id)
+            return
+
+        try:
+            chapter = book_models.Chapter.objects.create(
+                title=title,
+                book_id=book.id,
+                content_id=content.id,
+                words=words,
+            )
+            logger.info('创建Chapter成功|%s', chapter)
+            crawler_store.finish_crawling_book(book.id, book.website_id)
+        except Exception as e:
+            logger.error('创建Chapter出错|%s', e)
+            crawler_store.failure_crawling_book(book.id, book.website_id)

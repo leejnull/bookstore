@@ -48,12 +48,15 @@ class Book(models.Model):
 
 class Chapter(models.Model):
     title = models.CharField(max_length=256)
-    novel_id = models.IntegerField()
+    book_id = models.IntegerField()
     content_id = models.IntegerField()
     is_delete = models.BooleanField(default=False)
     words = models.IntegerField()
     create_time = models.DateTimeField(auto_created=True)
     update_time = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return '{0}|{1}|{2}|{3}'.format(self.title, self.book_id, self.content_id, self.words)
 
 
 class Content(models.Model):
