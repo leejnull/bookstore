@@ -1,0 +1,2121 @@
+ERROR 2020-02-21 00:11:01,441 log 7063 123145513623552 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 28, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 00:13:53,194 log 7098 123145604435968 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 00:15:00,156 log 7123 123145428512768 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 00:24:02,063 log 7169 123145358491648 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 00:31:24,027 log 7474 123145568890880 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1319, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1230, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1276, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1225, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1004, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 944, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1392, in connect
+    super().connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 915, in connect
+    self.sock = self._create_connection(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 64, in get
+    with contextlib.closing(urlopen(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1362, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1322, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error timed out>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 154, in load
+    for item in get_browsers(verify_ssl=verify_ssl):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 97, in get_browsers
+    html = get(settings.BROWSERS_STATS_PAGE, verify_ssl=verify_ssl)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 84, in get
+    raise FakeUserAgentError('Maximum amount of retries reached')
+fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1319, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1230, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1276, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1225, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1004, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 944, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1399, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 64, in get
+    with contextlib.closing(urlopen(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1362, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1322, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 10, in search_book_from_biquge
+    html = requestor.get(url)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/requestor.py", line 9, in get
+    custom_headers = {'User-Agent': UserAgent().random}
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/fake.py", line 69, in __init__
+    self.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/fake.py", line 75, in load
+    self.data = load_cached(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 250, in load_cached
+    update(path, use_cache_server=use_cache_server, verify_ssl=verify_ssl)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 245, in update
+    write(path, load(use_cache_server=use_cache_server, verify_ssl=verify_ssl))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 187, in load
+    ret = json.loads(get(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 84, in get
+    raise FakeUserAgentError('Maximum amount of retries reached')
+fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached
+ERROR 2020-02-21 09:50:16,469 log 1478 123145354735616 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1319, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1230, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1276, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1225, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1004, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 944, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1392, in connect
+    super().connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 915, in connect
+    self.sock = self._create_connection(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 64, in get
+    with contextlib.closing(urlopen(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1362, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1322, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error timed out>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 154, in load
+    for item in get_browsers(verify_ssl=verify_ssl):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 97, in get_browsers
+    html = get(settings.BROWSERS_STATS_PAGE, verify_ssl=verify_ssl)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 84, in get
+    raise FakeUserAgentError('Maximum amount of retries reached')
+fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1319, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1230, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1276, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1225, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1004, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 944, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1399, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 64, in get
+    with contextlib.closing(urlopen(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1362, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1322, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 10, in search_book_from_biquge
+    html = requestor.get(url)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/requestor.py", line 9, in get
+    custom_headers = {'User-Agent': UserAgent().random}
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/fake.py", line 69, in __init__
+    self.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/fake.py", line 75, in load
+    self.data = load_cached(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 250, in load_cached
+    update(path, use_cache_server=use_cache_server, verify_ssl=verify_ssl)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 245, in update
+    write(path, load(use_cache_server=use_cache_server, verify_ssl=verify_ssl))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 187, in load
+    ret = json.loads(get(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 84, in get
+    raise FakeUserAgentError('Maximum amount of retries reached')
+fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached
+WARNING 2020-02-21 10:32:23,839 log 2356 123145588928512 Not Found: /favicon.ico
+ERROR 2020-02-21 12:18:32,385 log 2356 123145605718016 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1319, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1230, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1276, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1225, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1004, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 944, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1392, in connect
+    super().connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 915, in connect
+    self.sock = self._create_connection(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 64, in get
+    with contextlib.closing(urlopen(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1362, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1322, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error timed out>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 154, in load
+    for item in get_browsers(verify_ssl=verify_ssl):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 97, in get_browsers
+    html = get(settings.BROWSERS_STATS_PAGE, verify_ssl=verify_ssl)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 84, in get
+    raise FakeUserAgentError('Maximum amount of retries reached')
+fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1319, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1230, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1276, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1225, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1004, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 944, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1399, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 64, in get
+    with contextlib.closing(urlopen(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1362, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1322, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 10, in search_book_from_biquge
+    html = requestor.get(url)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/requestor.py", line 9, in get
+    custom_headers = {'User-Agent': UserAgent().random}
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/fake.py", line 69, in __init__
+    self.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/fake.py", line 75, in load
+    self.data = load_cached(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 250, in load_cached
+    update(path, use_cache_server=use_cache_server, verify_ssl=verify_ssl)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 245, in update
+    write(path, load(use_cache_server=use_cache_server, verify_ssl=verify_ssl))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 187, in load
+    ret = json.loads(get(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/fake_useragent/utils.py", line 84, in get
+    raise FakeUserAgentError('Maximum amount of retries reached')
+fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached
+ERROR 2020-02-21 12:18:59,405 log 7501 123145522360320 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 12:21:16,307 log 7501 123145522360320 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 12:24:33,495 log 7501 123145522360320 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 12:53:48,375 log 7501 123145505570816 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 12:56:25,613 log 7501 123145522360320 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 15:21:59,152 log 8158 123145528799232 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 15:31:09,978 log 8158 123145528799232 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 15:33:52,276 log 8158 123145528799232 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 15:44:10,122 log 8468 123145602256896 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:03:32,046 log 8886 123145628184576 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:10:36,008 log 8996 123145483571200 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 29, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:31:35,280 log 9305 123145443815424 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 43, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 24, in search_book
+    return search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 48, in search_book_from_biquge
+    book_models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:32:08,181 log 9319 123145521070080 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 23, in search_book
+    search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 47, in search_book_from_biquge
+    book_models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:33:31,693 log 9347 123145400131584 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 42, in search_book
+    res = search_book_from_biquge(search_text, website.search_url, website.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 47, in search_book_from_biquge
+    book_models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:35:48,054 log 9408 123145586319360 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 43, in search_book
+    res = search_book_from_biquge(search_text, website.search_url, website.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 72, in search_book_from_biquge
+    Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:36:42,463 log 9430 123145389207552 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 43, in search_book
+    res = search_book_from_biquge(search_text, website.search_url, website.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 91, in search_book_from_biquge
+    Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:38:40,047 log 9457 123145465708544 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 43, in search_book
+    res = search_book_from_biquge(search_text, website.search_url, website.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 98, in search_book_from_biquge
+    Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:39:08,675 log 9468 123145390120960 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 43, in search_book
+    res = search_book_from_biquge(search_text, website.search_url, website.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 80, in search_book_from_biquge
+    Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:42:07,421 log 9520 123145418747904 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 43, in search_book
+    res = search_book_from_biquge(search_text, website.search_url, website.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 76, in search_book_from_biquge
+    Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:42:50,210 log 9536 123145390264320 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 43, in search_book
+    res = search_book_from_biquge(search_text, website.search_url, website.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 76, in search_book_from_biquge
+    Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 16:51:22,553 log 9645 123145397342208 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 43, in search_book
+    res = search_book_from_biquge(search_text, website.search_url, website.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 81, in search_book_from_biquge
+    Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 17:45:11,467 log 10086 123145547857920 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 41, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 28, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 17:46:51,195 log 10109 123145415286784 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 41, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 28, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 19:40:49,286 log 10588 123145605275648 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 41, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 28, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 19:41:33,494 log 10626 123145382166528 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 41, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 28, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.
+ERROR 2020-02-21 19:42:56,679 log 10626 123145398956032 Internal Server Error: /crawler/search_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Category'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 41, in search_book
+    res = website.search_book(search_text)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 21, in search_book
+    return crawl.search_book_from_biquge(book_name, self.search_url, self.id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 28, in search_book_from_biquge
+    models.Novel.objects.create(title=title,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 745, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 782, in save_base
+    updated = self._save_table(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/base.py", line 924, in _do_insert
+    return manager._insert(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1383, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1326, in as_sql
+    value_rows = [
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1327, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1268, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'category_id' expected a number but got <Category: Category object (1)>.

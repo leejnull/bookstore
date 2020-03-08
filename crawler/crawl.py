@@ -2,7 +2,7 @@ from utils import requestor
 from utils.logger import logger
 from bs4 import BeautifulSoup
 from book import models as book_models
-from store import crawler as crawler_store
+from crawler import models as crawler_models
 import re
 
 
@@ -42,8 +42,7 @@ def search_book_from_biquge(book_name, search_url, website_id, website_title):
 
 
 def crawling_book_from_biquge(book_id, book_url, website_id, domain_url):
-    crawler_store.start_crawling_book(book_id, website_id)
-    url = book_url + book_id + '/'
+    url = '{0}{1}{2}'.format(book_url, book_id, '/')
     html = requestor.get(url)
     if html:
         soup = BeautifulSoup(html, 'lxml')
@@ -73,19 +72,26 @@ def crawling_book_from_biquge(book_id, book_url, website_id, domain_url):
                 related_id=book_id
             )
             logger.info("创建Book成功")
+            try:
+                record = crawler_models.CrawlingRecord.objects.create(book_id=book.id,
+                                                                      status=crawler_models.CrawlingRecord.Status.CRAWLING_UN)
+            except Exception as e:
+                logger.error('创建爬虫记录出错|%s', e)
+                return
             chapters = soup.find_all('dd')
-            for chapter in chapters:
+            for i, chapter in enumerate(chapters):
+                if i == 0:
+                    record.status = crawler_models.CrawlingRecord.Status.CRAWLING_PROCESSING
                 chapter_url = domain_url + chapter.a['href']
-                crawling_chapter_from_biquge(chapter_url, book)
+                crawling_chapter_from_biquge(chapter_url, book, record)
+            record.status = crawler_models.CrawlingRecord.Status.CRAWLING_SUCCESS
         except Exception as e:
-            crawler_store.failure_crawling_book(book_id, website_id)
             logger.error("创建Book出错|%s", e)
     else:
         logger.warning('该书籍ID找不到对应数据|%s', book_id)
-        crawler_store.failure_crawling_book(book_id, website_id)
 
 
-def crawling_chapter_from_biquge(chapter_url, book):
+def crawling_chapter_from_biquge(chapter_url, book, record):
     html = requestor.get(chapter_url)
     if html:
         soup = BeautifulSoup(html, 'lxml')
@@ -102,7 +108,7 @@ def crawling_chapter_from_biquge(chapter_url, book):
             content = book_models.Content.objects.create(content=text)
         except Exception as e:
             logger.error('创建Content出错|%s', e)
-            crawler_store.failure_crawling_book(book.id, book.website_id)
+            record.status = crawler_models.CrawlingRecord.Status.CRAWLING_FAILURE
             return
 
         try:
@@ -113,7 +119,6 @@ def crawling_chapter_from_biquge(chapter_url, book):
                 words=words,
             )
             logger.info('创建Chapter成功|%s', chapter)
-            crawler_store.finish_crawling_book(book.id, book.website_id)
         except Exception as e:
             logger.error('创建Chapter出错|%s', e)
-            crawler_store.failure_crawling_book(book.id, book.website_id)
+            record.status = crawler_models.CrawlingRecord.Status.CRAWLING_FAILURE

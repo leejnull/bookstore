@@ -1,6 +1,6 @@
 from django.db import models
 from utils.logger import logger
-from crawler.models import Website
+from crawler import models as crawler_models
 
 
 class Book(models.Model):
@@ -26,8 +26,8 @@ class Book(models.Model):
 
     def get_website(self):
         try:
-            website = Website.objects.get(id=self.website_id)
-        except Website.DoesNotExist:
+            website = crawler_models.Website.objects.get(id=self.website_id)
+        except crawler_models.Website.DoesNotExist:
             logger.error('找不到website|%s', self.website_id)
             website = None
         return website
@@ -52,8 +52,8 @@ class Chapter(models.Model):
     content_id = models.IntegerField()
     is_delete = models.BooleanField(default=False)
     words = models.IntegerField()
-    create_time = models.DateTimeField(auto_created=True)
-    update_time = models.DateTimeField(null=True)
+    create_time = models.DateTimeField(auto_created=True, auto_now=True)
+    update_time = models.DateTimeField(null=True, auto_now_add=True)
 
     def __str__(self):
         return '{0}|{1}|{2}|{3}'.format(self.title, self.book_id, self.content_id, self.words)

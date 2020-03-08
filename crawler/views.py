@@ -1,7 +1,7 @@
 from utils.decorator import post, require_login
 from utils.logger import logger
 from utils.response import response_failure, response_success
-from crawler.models import Website
+from crawler.models import Website, CrawlingRecord
 from config.default_data import WEBSITES
 
 
@@ -63,6 +63,39 @@ def crawling_book(request):
     # 异步抓取书籍
     website.crawling_book(book_id)
     return response_success(message='正在爬取书籍中，请去【爬虫管理】查看进度')
+
+
+@require_login
+@post
+def get_crawling_books(request):
+    """
+    获取正在爬取的书籍列表
+    :param request:
+    filter_rule: 过滤规则 0：全部；1：正在爬取的；2：抓取成功；3：抓取失败
+    rank_rule: 排序规则 0：按创建时间从近到远；1：按创建时间从远到近
+    :return: {}
+    """
+    try:
+        filter_rule = int(request.POST.get('filter_rule', '0'))
+        rank_rule = int(request.POST.get('rank_rule', '0'))
+    except (ValueError, IndexError, TypeError):
+        logger.error('参数不正确|%s', request.POST)
+        return response_failure(message='请求参数错误')
+
+    if filter_rule == 0:
+        record_qs = CrawlingRecord.objects.all()
+    else:
+        record_qs = CrawlingRecord.objects.get(status=filter_rule)
+
+    if rank_rule == 0:
+        record_qs = record_qs.order_by('create_dt')
+    else:
+        record_qs = record_qs.order_by('-create_dt')
+
+    result = []
+    for record in record_qs:
+        result.append(record.to_dict())
+    return result
 
 
 @require_login
