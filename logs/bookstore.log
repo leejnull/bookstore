@@ -17,3 +17,20 @@ Traceback (most recent call last):
   File "/Users/lijun/PycharmProjects/bookstore/crawler/crawl.py", line 45, in crawling_book_from_biquge
     url = book_url + book_id + '/'
 TypeError: can only concatenate str (not "NoneType") to str
+ERROR 2020-03-09 23:46:36,571 log 1613 123145501478912 Internal Server Error: /crawler/crawling_book
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 60, in wrapper
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/utils/decorator.py", line 33, in in_func
+    return func(request)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/views.py", line 64, in crawling_book
+    website.crawling_book(book_id)
+  File "/Users/lijun/PycharmProjects/bookstore/crawler/models.py", line 30, in crawling_book
+    threading.Thread(target=crawl.crawling_book_from_biquge(),
+TypeError: crawling_book_from_biquge() missing 4 required positional arguments: 'book_id', 'book_url', 'website_id', and 'domain_url'

@@ -95,7 +95,7 @@ def get_crawling_books(request):
     result = []
     for record in record_qs:
         result.append(record.to_dict())
-    return result
+    return response_success(data=result)
 
 
 @require_login

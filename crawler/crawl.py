@@ -3,6 +3,7 @@ from utils.logger import logger
 from bs4 import BeautifulSoup
 from book import models as book_models
 from crawler import models as crawler_models
+from time import sleep
 import re
 
 
@@ -82,8 +83,11 @@ def crawling_book_from_biquge(book_id, book_url, website_id, domain_url):
             for i, chapter in enumerate(chapters):
                 if i == 0:
                     record.status = crawler_models.CrawlingRecord.Status.CRAWLING_PROCESSING
+                    record.save()
                 chapter_url = domain_url + chapter.a['href']
+                sleep(1)
                 crawling_chapter_from_biquge(chapter_url, book, record)
+            logger.info('抓取完成|%s', book.id)
             record.status = crawler_models.CrawlingRecord.Status.CRAWLING_SUCCESS
         except Exception as e:
             logger.error("创建Book出错|%s", e)
@@ -109,6 +113,7 @@ def crawling_chapter_from_biquge(chapter_url, book, record):
         except Exception as e:
             logger.error('创建Content出错|%s', e)
             record.status = crawler_models.CrawlingRecord.Status.CRAWLING_FAILURE
+            record.save()
             return
 
         try:
@@ -122,3 +127,4 @@ def crawling_chapter_from_biquge(chapter_url, book, record):
         except Exception as e:
             logger.error('创建Chapter出错|%s', e)
             record.status = crawler_models.CrawlingRecord.Status.CRAWLING_FAILURE
+            record.save()

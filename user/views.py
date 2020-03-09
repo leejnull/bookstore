@@ -2,8 +2,7 @@ from config.key import TOKEN_KEY, TOKEN_EXPIRE
 from utils.decorator import pre_login, post, require_login
 from utils.encryption import gen_token, md5
 from utils.logger import logger
-from utils.response import response_failure, response_success
-from utils.enums import StatusCode
+from utils.response import response_failure, response_success, response_login
 from utils import validator
 from store import user as store_user
 from .models import Account
@@ -91,6 +90,6 @@ def get_user_info(request):
         account = Account.objects.get(id=account_id)
     except Account.DoesNotExist:
         logger.warning('找不到指定的account|%s', account_id)
-        return response_failure(message='用户ID不正确，请重新登录')
+        return response_login()
 
     return response_success(data=account.to_dict())

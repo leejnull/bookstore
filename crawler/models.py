@@ -3,6 +3,7 @@ from crawler import crawl
 from book import models as book_models
 from utils.logger import logger
 from utils.conventor import ts_from_dt
+import threading
 
 
 class Website(models.Model):
@@ -26,7 +27,9 @@ class Website(models.Model):
 
     def crawling_book(self, book_id):
         if self.is_biquge():
-            crawl.crawling_book_from_biquge(book_id, self.detail_url, self.id, self.domain)
+            t = threading.Thread(target=crawl.crawling_book_from_biquge,
+                                 args=(book_id, self.detail_url, self.id, self.domain))
+            t.start()
 
 
 class CrawlingRecord(models.Model):
@@ -49,7 +52,7 @@ class CrawlingRecord(models.Model):
         if self.status == CrawlingRecord.Status.CRAWLING_UN:
             status_desc = '未爬取'
         elif self.status == CrawlingRecord.Status.CRAWLING_PROCESSING:
-            status_desc = '爬取中',
+            status_desc = '爬取中'
         elif self.status == CrawlingRecord.Status.CRAWLING_SUCCESS:
             status_desc = '爬取成功'
         elif self.status == CrawlingRecord.Status.CRAWLING_FAILURE:
