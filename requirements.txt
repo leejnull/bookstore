@@ -9,7 +9,7 @@ djangorestframework==3.11.0
 djangorestframework-jwt==1.11.0
 fake-useragent==0.1.11
 idna==2.8
-lxml==4.4.2
+lxml==4.6.2
 mysqlclient==1.4.6
 PyJWT==1.7.1
 pytz==2019.3
